@@ -22,9 +22,12 @@ const db = require("./config/database");
 
 // Connect to the Mongo DB
 mongoose
-  .connect(db.mongoURI, {
-    useNewUrlParser: true,
-  })
+  .connect(
+    "mongodb+srv://codeboss:pass@cluster0.ob0bx.mongodb.net/videojot-prod",
+    {
+      useNewUrlParser: true,
+    }
+  )
   .then(() => {
     console.log("Connected to MongoDB");
   })
