@@ -17,9 +17,12 @@ const users = require("./routes/users");
 // Passport config
 require("./config/passport")(passport);
 
+// DB Config
+const db = require("./config/database");
+
 // Connect to the Mongo DB
 mongoose
-  .connect("mongodb://localhost/videojot-dev", {
+  .connect(db.mongoURI, {
     useNewUrlParser: true,
   })
   .then(() => {
@@ -94,7 +97,7 @@ app.use("/ideas", ideas);
 app.use("/users", users);
 
 // Port
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
